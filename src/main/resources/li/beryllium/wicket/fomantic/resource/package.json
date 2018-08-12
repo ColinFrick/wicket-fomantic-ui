@@ -1,0 +1,18 @@
+{
+  "name": "wicket-fomantic-ui",
+  "version": "1.0.0",
+  "description": "Integration of Fomantic UI into Wicket",
+  "author": "Colin Frick",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "prebuild": "npm install",
+    "build": "gulp build --cwd fomantic/"
+  },
+  "dependencies": {
+    "fomantic-ui": "^2.4.4"
+  }
+}

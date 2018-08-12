@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>li.beryllium.wicket</groupId>
+    <artifactId>wicket-fomantic-ui</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Wicket Fomantic UI</name>
+    <description>Integration of Fomantic UI into Wicket</description>
+
+    <properties>
+        <wicket.version>8.0.0</wicket.version>
+        <findbugs.version>3.0.2</findbugs.version>
+        <lombok.version>1.18.2</lombok.version>
+        <delombok.version>1.18.0.0</delombok.version>
+
+        <lombok.encoding>UTF-8</lombok.encoding>
+    </properties>
+
+    <dependencies>
+        <!-- Wicket -->
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-core</artifactId>
+            <version>${wicket.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.wicket</groupId>
+            <artifactId>wicket-extensions</artifactId>
+            <version>${wicket.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>${findbugs.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <resources>
+                        <resource>
+                            <directory>src/main/resources</directory>
+                            <excludes>
+                                <exclude>li/beryllium/wicket/fomantic/resource/etc/**</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/node/**</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/node_modules/**</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/fomantic/src/**</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/fomantic/tasks/**</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/fomantic/gulpfile.js</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/.gitignore</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/package.json</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/package-lock.json</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/fomantic.json</exclude>
+                            </excludes>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.5</version>
+
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>v8.11.1</nodeVersion> <!-- Node.js LTS Version -->
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>npm build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <workingDirectory>src/main/resources/li/beryllium/wicket/fomantic/resource</workingDirectory>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <excludes>
+                        <exclude>li/beryllium/wicket/fomantic/resource/etc/**</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/node/**</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/node_modules/**</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/fomantic/src/**</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/fomantic/tasks/**</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/fomantic/gulpfile.js</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/.gitignore</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/package.json</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/package-lock.json</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/fomantic.json</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok-maven-plugin</artifactId>
+                <version>${delombok.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>delombok</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/delombok</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
