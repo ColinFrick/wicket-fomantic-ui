@@ -8,10 +8,34 @@
     <groupId>li.beryllium.wicket</groupId>
     <artifactId>wicket-fomantic-ui</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <name>Wicket Fomantic UI</name>
     <description>Integration of Fomantic UI into Wicket</description>
+    <url>https://wicket.beryllium.li/</url>
+         
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+         
+    <developers>
+        <developer>
+            <name>Colin Frick</name>
+            <email>colin@beryllium.li</email>
+            <organization>Beryllium Studios</organization>
+            <organizationUrl>http://www.beryllium.li</organizationUrl>
+        </developer>
+    </developers>
 
+    <scm>
+        <connection>scm:git:git://github.com/ColinFrick/wicket-fomantic-ui.git</connection>
+        <developerConnection>scm:git:ssh://github.com:ColinFrick/wicket-fomantic-ui.git</developerConnection>
+        <url>http://github.com/ColinFrick/wicket-fomantic-ui/tree/master</url>
+    </scm>
+    
     <properties>
         <wicket.version>8.0.0</wicket.version>
         <findbugs.version>3.0.2</findbugs.version>
