@@ -69,7 +69,7 @@
                                 <exclude>li/beryllium/wicket/fomantic/resource/.gitignore</exclude>
                                 <exclude>li/beryllium/wicket/fomantic/resource/package.json</exclude>
                                 <exclude>li/beryllium/wicket/fomantic/resource/package-lock.json</exclude>
-                                <exclude>li/beryllium/wicket/fomantic/resource/fomantic.json</exclude>
+                                <exclude>li/beryllium/wicket/fomantic/resource/semantic.json</exclude>
                             </excludes>
                         </resource>
                     </resources>
@@ -123,7 +123,7 @@
                         <exclude>li/beryllium/wicket/fomantic/resource/.gitignore</exclude>
                         <exclude>li/beryllium/wicket/fomantic/resource/package.json</exclude>
                         <exclude>li/beryllium/wicket/fomantic/resource/package-lock.json</exclude>
-                        <exclude>li/beryllium/wicket/fomantic/resource/fomantic.json</exclude>
+                        <exclude>li/beryllium/wicket/fomantic/resource/semantic.json</exclude>
                     </excludes>
                 </configuration>
             </plugin>
