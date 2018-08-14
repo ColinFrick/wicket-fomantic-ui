@@ -27,7 +27,7 @@ package li.beryllium.wicket.fomantic;
  * <p>
  * Various constants for Fomantic UI
  */
-public final class FomanticConstants {
+public class FomanticConstants {
 
     /**
      * Base CSS Class for all Fomantic UI elements / components / etc.
