@@ -1,5 +1,5 @@
 {
-  "base": "fomantic\\",
+  "base": "fomantic/",
   "paths": {
     "source": {
       "config": "src/theme.config",
