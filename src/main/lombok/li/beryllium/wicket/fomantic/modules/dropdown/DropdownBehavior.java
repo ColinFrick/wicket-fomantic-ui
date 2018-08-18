@@ -97,4 +97,11 @@ public class DropdownBehavior extends Behavior {
         // TODO Add all dropdown options
         response.render(OnDomReadyHeaderItem.forScript("$(\"#" + component.getMarkupId() + "\").dropdown(" + optionsObject.toString() + ")"));
     }
+
+    @Override
+    public void detach(Component component) {
+        super.detach(component);
+
+        dropdownOptions.detach();
+    }
 }
