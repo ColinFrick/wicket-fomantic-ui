@@ -17,6 +17,8 @@ import org.apache.wicket.model.IDetachable;
 @Data
 @Builder
 public class FlagOptions implements IDetachable {
+    
+    private static final long serialVersionUID = 6323414772270407815L;
 
     @Override
     public void detach() {
