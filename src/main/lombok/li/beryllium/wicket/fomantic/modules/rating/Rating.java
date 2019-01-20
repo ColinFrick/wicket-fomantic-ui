@@ -55,6 +55,8 @@ import java.util.StringJoiner;
  */
 public class Rating<T extends Number & Comparable<T>> extends FormComponent<T> {
 
+    public static final String RATING_CSS_CLASS = "rating";
+
     private static final String RATING_VALUE_PARAMETER = "value";
 
     private final RatingOptions options;
@@ -93,17 +95,22 @@ public class Rating<T extends Number & Comparable<T>> extends FormComponent<T> {
         super.onComponentTag(tag);
 
         StringJoiner cssClasses = new StringJoiner(" ")
-                .add(FomanticConstants.BASE_CSS_CLASS)
-                .add("rating");
+                .add(FomanticConstants.BASE_CSS_CLASS);
 
-        if (!RatingType.DEFAULT.equals(options.getType())) {
-            cssClasses.add(options.getType().name().toLowerCase());
-        }
+        // Add color if specified
+        Optional.ofNullable(options.getColor())
+                .ifPresent(cssClasses::add);
 
-        if (options.getSize() != null) {
-            cssClasses.add(options.getSize().getSizeName(true));
-        }
+        // Add size if specified
+        Optional.ofNullable(options.getSize())
+                .ifPresent(size -> cssClasses.add(size.getSizeName(true)));
+
+        // Add rating class
+        cssClasses.add(RATING_CSS_CLASS);
         tag.put("class", cssClasses.toString());
+
+        Optional.ofNullable(options.getIcon())
+                .ifPresent(icon -> tag.put("data-icon", icon));
 
         tag.put("data-rating", getRating());
         tag.put("data-max-rating", options.getMaxRating());
