@@ -27,8 +27,6 @@ import lombok.Builder;
 import lombok.Data;
 import org.apache.wicket.model.IDetachable;
 
-import javax.annotation.Nonnull;
-
 /**
  * RatingOptions
  * <p/>
@@ -48,12 +46,14 @@ public class RatingOptions implements IDetachable {
     private int maxRating = 4;
 
     /**
-     * Type of the rating display
+     * Icon of the rating display
      */
-    @SuppressWarnings("UnusedAssignment")
-    @Builder.Default
-    @Nonnull
-    private RatingType type = RatingType.DEFAULT;
+    private String icon;
+
+    /**
+     * Color of the rating display
+     */
+    private String color;
 
     /**
      * When clearable is set to true you can clear the rating by clicking on the current start rating.
