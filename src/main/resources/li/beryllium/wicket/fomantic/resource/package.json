@@ -5,15 +5,11 @@
   "author": "Colin Frick",
   "license": "MIT",
   "private": true,
-  "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-help": "github:chmontgomery/gulp-help#gulp4"
-  },
   "scripts": {
     "prebuild": "npm install",
     "build": "gulp build --cwd fomantic/"
   },
   "dependencies": {
-    "fomantic-ui": "2.7.1"
+    "fomantic-ui": "2.7.4"
   }
 }
