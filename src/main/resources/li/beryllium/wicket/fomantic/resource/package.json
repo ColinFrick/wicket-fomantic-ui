@@ -10,6 +10,6 @@
     "build": "gulp build --cwd fomantic/"
   },
   "dependencies": {
-    "fomantic-ui": "^2.7.6"
+    "fomantic-ui": "^2.7.8"
   }
 }
