@@ -37,7 +37,7 @@
     </scm>
     
     <properties>
-        <wicket.version>8.6.1</wicket.version>
+        <wicket.version>8.9.0</wicket.version>
         <findbugs.version>3.0.2</findbugs.version>
         <lombok.version>1.18.10</lombok.version>
         <delombok.version>1.18.10.0</delombok.version>
